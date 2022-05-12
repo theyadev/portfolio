@@ -65,13 +65,13 @@ const sortedExperiences = experiences.sort(
 <template>
   <div
     id="cv"
-    class="bg- snap-start scroll-mt-[4.2rem] flex flex-col py-4 px-32 bg-zinc-800/10"
+    class="tab"
   >
     <Title class="mx-auto">Curiculum Vitae</Title>
-    <h1 class="text-4xl font-semibold mx-auto mt-2">Résumé de mon CV</h1>
+    <h1 class="header">Résumé de mon CV</h1>
     <div class="grid grid-cols-2">
       <div class="flex flex-col gap-y-4">
-        <h3 class="text-3xl font-semibold mt-2">Diplomes</h3>
+        <h3 class="sub-header">Diplomes</h3>
         <div class="px-2 flex flex-col gap-y-2">
           <Card
             v-for="certification in certifications"
@@ -98,7 +98,7 @@ const sortedExperiences = experiences.sort(
       </div>
     </div>
     <div class="gap-y-4 flex flex-col">
-      <h3 class="text-3xl font-semibold mt-2">Mes Compétences</h3>
+      <h3 class="sub-header">Mes Compétences</h3>
       <div
         class="flex justify-center gap-8 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
       >
@@ -131,6 +131,6 @@ const sortedExperiences = experiences.sort(
         </div>
       </div>
     </div>
-    <div class="button mx-auto mt-2">Téléchager mon CV</div>
+    <div class="button mx-auto mt-10">Téléchager mon CV</div>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
   <div
     id="about"
-    class="snap-start scroll-mt-[4.2rem] flex flex-col py-4 px-32"
+    class="tab"
   >
     <Title class="mx-auto">A Propos</Title>
-    <h1 class="text-4xl font-semibold mx-auto mt-2">Me Connaitre ?</h1>
+    <h1 class="header">Me Connaitre ?</h1>
       <div class="mt-8 grid grid-cols-6 gap-4">
         <div class="col-span-4">
           <p class="text-2xl">Salut ! Moi c'est Théo</p>

@@ -2,3 +2,19 @@
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
+
+.tab {
+    @apply snap-start scroll-mt-[4.2rem] flex flex-col py-4 px-32
+}
+
+.tab:nth-child(2n) {
+    @apply bg-zinc-800/10
+}
+
+.header {
+    @apply text-4xl font-semibold mx-auto mt-2
+}
+
+.sub-header {
+    @apply text-3xl font-semibold mt-2
+}
