@@ -3,7 +3,7 @@
     id="about"
     class="tab"
   >
-    <Title class="mx-auto">A Propos</Title>
+    <div class="title mx-auto">A Propos</div>
     <h1 class="header">Me Connaitre ?</h1>
       <div class="mt-8 grid grid-cols-6 gap-4">
         <div class="col-span-4">

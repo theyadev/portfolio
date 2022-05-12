@@ -18,3 +18,7 @@
 .sub-header {
     @apply text-3xl font-semibold mt-2
 }
+
+.title {
+    @apply bg-green-500 px-5 py-1 text-black
+}

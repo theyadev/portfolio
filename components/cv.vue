@@ -67,7 +67,7 @@ const sortedExperiences = experiences.sort(
     id="cv"
     class="tab"
   >
-    <Title class="mx-auto">Curiculum Vitae</Title>
+    <div class="title mx-auto">Curiculum Vitae</div>
     <h1 class="header">Résumé de mon CV</h1>
     <div class="grid grid-cols-2">
       <div class="flex flex-col gap-y-4">
@@ -84,7 +84,7 @@ const sortedExperiences = experiences.sort(
         </div>
       </div>
       <div class="flex flex-col gap-y-4">
-        <h3 class="text-3xl font-semibold mx-auto mt-2">Expérience</h3>
+        <h3 class="text-3xl font-semibold mx-auto mt-2">Expériences</h3>
         <div class="px-2 flex flex-col gap-y-2">
           <Card
             v-for="experience in sortedExperiences"
@@ -104,7 +104,7 @@ const sortedExperiences = experiences.sort(
       >
         <div
           v-for="category in categories"
-          class="cursor-pointer transition-all duration-200"
+          class="cursor-pointer transition-all duration-200 text-xl"
           @click="changeCategory(category)"
           :class="{ 'text-green-500': current_category === category }"
         >
@@ -118,7 +118,7 @@ const sortedExperiences = experiences.sort(
             .sort((a, b) => b.level - a.level)"
           class="gap-y-1 flex flex-col"
         >
-          <p>
+          <p class="text-lg">
             {{ skill.name }}
           </p>
           <div class="w-full rounded-full h-2.5 bg-gray-700">

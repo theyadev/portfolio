@@ -15,13 +15,19 @@ function updateActive() {
 </script>
 
 <template>
+    <Head>
+      <Title>Fassi Théo - Portfolio</Title>
+      <Meta name="description" content="Vous êtes intéréssé par mon profil ? Venez voir mon portfolio !" />
+    </Head>
+
   <Navbar />
   <div
     @scroll="updateActive"
-    class="snap-y snap-proximity scroll-smooth relative h-screen w-full overflow-y-scroll bg-zinc-900 text-white"
+    class="snap-y snap-mandatory scroll-smooth relative h-screen w-full overflow-y-scroll bg-zinc-900 text-white"
   >
     <Landing />
     <About />
     <Cv />
+    <Projects />
   </div>
 </template>
