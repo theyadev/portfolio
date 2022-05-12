@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.nav-item {
+    @apply relative flex items-center
+}
+
+.nav-item.active::after {
+    content: '';
+    @apply absolute w-full h-[2px] -bottom-2 rounded-sm rounded-bl rounded-br bg-gradient-to-r from-[#591bc5] to-[#5afc41];
+    background-size: 200% 200%;
+    animation: Gradient 5s ease infinite;
+}
+
+.button {
+    @apply px-4 py-2 border border-green-500 text-green-500 cursor-pointer rounded
+}
