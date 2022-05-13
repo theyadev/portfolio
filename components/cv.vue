@@ -69,7 +69,7 @@ const sortedExperiences = experiences.sort(
   >
     <div class="title mx-auto">Curiculum Vitae</div>
     <h1 class="header">Résumé de mon CV</h1>
-    <div class="grid grid-cols-2">
+    <div class="grid md:grid-cols-2 gap-y-2">
       <div class="flex flex-col gap-y-4">
         <h3 class="sub-header">Diplomes</h3>
         <div class="px-2 flex flex-col gap-y-2">
@@ -98,20 +98,20 @@ const sortedExperiences = experiences.sort(
       </div>
     </div>
     <div class="gap-y-4 flex flex-col">
-      <h3 class="sub-header">Mes Compétences</h3>
+      <h3 class="sub-header pt-8 md:pt-0">Mes Compétences</h3>
       <div
-        class="flex justify-center gap-8 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
+        class="flex justify-center flex-wrap gap-8 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
       >
         <div
           v-for="category in categories"
-          class="cursor-pointer transition-all duration-200 text-xl"
+          class="cursor-pointer transition-all duration-200 text-lg border-white border px-4 py-1 rounded"
           @click="changeCategory(category)"
-          :class="{ 'text-green-500': current_category === category }"
+          :class="{ 'text-green-500 border-green-500': current_category === category }"
         >
           {{ category }}
         </div>
       </div>
-      <div class="grid grid-cols-2 gap-x-10 gap-y-2">
+      <div class="grid md:grid-cols-2 gap-x-10 gap-y-2">
         <div
           v-for="skill in skills
             .filter((skill) => skill.category === current_category)
