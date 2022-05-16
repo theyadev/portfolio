@@ -20,7 +20,7 @@
     },
     {
         "name": "Next.JS",
-        "level": 6,
+        "level": 7,
         "category": "Frameworks"
     },
     {
@@ -84,13 +84,23 @@
         "category": "Langages"
     },
     {
-        "name": "Vue.JS",
+        "name": "Vue.JS 2",
+        "level": 8,
+        "category": "Frameworks"
+    },
+    {
+        "name": "Vue.JS 3",
         "level": 9,
         "category": "Frameworks"
     },
     {
+        "name": "Nuxt 3",
+        "level": 8,
+        "category": "Frameworks"
+    },
+    {
         "name": "React.JS",
-        "level": 7,
+        "level": 6,
         "category": "Frameworks"
     },
     {
