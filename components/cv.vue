@@ -2,6 +2,9 @@
 import skills from "~/assets/skills.json";
 import certifications from "~/assets/certifications.json";
 import experiences from "~/assets/experiences.json";
+const cv_link = ref<string>(
+  "https://www.canva.com/design/DAEhpYP0cbc/5OrlTaLCXiQenASohg_aSg/view?utm_content=DAEhpYP0cbc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+);
 
 type Category =
   | "Langages"
@@ -47,8 +50,6 @@ function getColor(number: number) {
   }
 }
 
-var dateString = "23/10/2015"; // Oct 23
-
 function getDate(dateString: string) {
   const dateParts = dateString.split("/");
 
@@ -63,10 +64,7 @@ const sortedExperiences = experiences.sort(
 </script>
 
 <template>
-  <div
-    id="cv"
-    class="tab"
-  >
+  <div id="cv" class="tab">
     <div class="title mx-auto">Curiculum Vitae</div>
     <h1 class="header">Résumé de mon CV</h1>
     <div class="grid md:grid-cols-2 gap-y-2">
@@ -106,7 +104,9 @@ const sortedExperiences = experiences.sort(
           v-for="category in categories"
           class="cursor-pointer transition-all duration-200 text-lg border-white border px-4 py-1 rounded"
           @click="changeCategory(category)"
-          :class="{ 'text-green-500 border-green-500': current_category === category }"
+          :class="{
+            'text-green-500 border-green-500': current_category === category,
+          }"
         >
           {{ category }}
         </div>
@@ -131,6 +131,6 @@ const sortedExperiences = experiences.sort(
         </div>
       </div>
     </div>
-    <div class="button mx-auto mt-10">Téléchager mon CV</div>
+    <a :href="cv_link" target="_blank" class="button mx-auto mt-10">Téléchager mon CV</a>
   </div>
 </template>
