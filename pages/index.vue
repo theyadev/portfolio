@@ -18,6 +18,7 @@ function updateActive() {
     <Head>
       <Title>Fassi Théo - Portfolio</Title>
       <Meta name="description" content="Vous êtes intéréssé par mon profil ? Venez voir mon portfolio !" />
+      <Script src="https://kit.fontawesome.com/6059509ea3.js" crossorigin="anonymous" />
     </Head>
 
   <Navbar />
@@ -30,4 +31,5 @@ function updateActive() {
     <Cv />
     <Projects />
   </div>
+  
 </template>
