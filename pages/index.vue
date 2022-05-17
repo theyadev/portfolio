@@ -7,7 +7,7 @@ const links = useLinks()
 const active = useActive()
 
 function updateActive() {
-  const element = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 2);  
+  const element = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 4);  
   const current_link = links.value.find(link => element.closest(link.path))
   
   active.value = current_link.path
@@ -30,6 +30,8 @@ function updateActive() {
     <About />
     <Cv />
     <Projects />
+    <Contact />
+    <Footer />
   </div>
   
 </template>

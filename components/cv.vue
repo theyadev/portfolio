@@ -1,63 +1,23 @@
 <script setup lang="ts">
-import skills from "~/assets/skills.json";
+import skills_json from "~/assets/skills.json";
 import certifications from "~/assets/certifications.json";
 import experiences from "~/assets/experiences.json";
 const cv_link = ref<string>(
   "https://www.canva.com/design/DAEhpYP0cbc/5OrlTaLCXiQenASohg_aSg/view?utm_content=DAEhpYP0cbc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
 );
 
-type Category =
-  | "Langages"
-  | "Frameworks"
-  | "Frameworks CSS"
-  | "Bases de données"
-  | "Outils"
-  | "Autres";
+const skills = ref(skills_json);
 
-const categories: Category[] = [
+const categories = ref([
   "Langages",
   "Frameworks",
   "Frameworks CSS",
   "Bases de données",
   "Outils",
   "Autres",
-];
+]);
 
-const current_category = ref<Category>(categories[0]);
-
-function changeCategory(category: Category) {
-  current_category.value = category;
-}
-
-function getColor(number: number) {
-  switch (number) {
-    case 1:
-    case 2:
-      return "bg-orange-500";
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-      return "bg-yellow-500";
-    case 7:
-    case 8:
-      return "bg-blue-500";
-    case 9:
-    case 10:
-      return "bg-green-500";
-    default:
-      return "bg-gray-500";
-  }
-}
-
-function getDate(dateString: string) {
-  const dateParts = dateString.split("/");
-
-  const dateObject = new Date(+dateParts[2], +dateParts[1] - 1, +dateParts[0]);
-
-  return dateObject;
-}
-
+const current_category = ref(categories.value[0]);
 const sortedExperiences = experiences.sort(
   (a, b) => getDate(b.from).getTime() - getDate(a.from).getTime()
 );
@@ -102,10 +62,10 @@ const sortedExperiences = experiences.sort(
       >
         <div
           v-for="category in categories"
-          class="cursor-pointer transition-all duration-200 text-lg border-white border px-4 py-1 rounded"
-          @click="changeCategory(category)"
+          class="button"
+          @click="current_category = category"
           :class="{
-            'text-green-500 border-green-500': current_category === category,
+            'button--green': current_category === category,
           }"
         >
           {{ category }}
@@ -121,16 +81,15 @@ const sortedExperiences = experiences.sort(
           <p class="text-lg">
             {{ skill.name }}
           </p>
-          <div class="w-full rounded-full h-2.5 bg-gray-700">
-            <div
-              class="h-2.5 rounded-full"
-              :class="getColor(skill.level)"
-              :style="{ width: skill.level * 10 + '%' }"
-            ></div>
-          </div>
+          <Progressbar :n="skill.level" />
         </div>
       </div>
     </div>
-    <a :href="cv_link" target="_blank" class="button mx-auto mt-10">Téléchager mon CV</a>
+    <a
+      :href="cv_link"
+      target="_blank"
+      class="button button--green mx-auto mt-10"
+      >Téléchager mon CV</a
+    >
   </div>
 </template>
