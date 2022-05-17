@@ -42,7 +42,7 @@ const sortedExperiences = experiences.sort(
         </div>
       </div>
       <div class="flex flex-col gap-y-4">
-        <h3 class="text-3xl font-semibold mx-auto mt-2">Expériences</h3>
+        <h3 class="sub-header">Expériences</h3>
         <div class="px-2 flex flex-col gap-y-2">
           <Card
             v-for="experience in sortedExperiences"
@@ -58,7 +58,7 @@ const sortedExperiences = experiences.sort(
     <div class="gap-y-4 flex flex-col">
       <h3 class="sub-header pt-8 md:pt-0">Mes Compétences</h3>
       <div
-        class="flex justify-center flex-wrap gap-8 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
+        class="flex justify-center flex-wrap gap-x-8 gap-y-2 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
       >
         <div
           v-for="category in categories"
