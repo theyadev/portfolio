@@ -3,23 +3,55 @@ import "~/assets/css/cube.css";
 import "~/assets/css/background.css";
 import "~/assets/css/index.css";
 
-const links = useLinks()
-const active = useActive()
+const links = useLinks();
+const active = useActive();
 
 function updateActive() {
-  const element = document.elementFromPoint(window.innerWidth / 2, window.innerHeight / 4);  
-  const current_link = links.value.find(link => element.closest(link.path))
-  
-  active.value = current_link.path
+  const element = document.elementFromPoint(
+    window.innerWidth / 2,
+    window.innerHeight / 4
+  );
+  const current_link = links.value.find((link) => element.closest(link.path));
+
+  active.value = current_link.path;
 }
 </script>
 
 <template>
-    <Head>
-      <Title>Fassi Théo - Portfolio</Title>
-      <Meta name="description" content="Vous êtes intéréssé par mon profil ? Venez voir mon portfolio !" />
-      <Script src="https://kit.fontawesome.com/6059509ea3.js" crossorigin="anonymous" />
-    </Head>
+  <Head>
+    <Title>Fassi Théo - Portfolio</Title>
+    <Meta
+      name="description"
+      content="Portfolio de Théo Fassi, développeur web fullstack. 3 ans d'expérience en Javascript et récemment diplomé d'une formation &quot;Développeur Web et Web Mobile&quot;."
+    />
+
+    <Meta name="og:locale" content="fr_FR" />
+    <Meta name="og:type" content="website" />
+    <Meta name="og:title" content="Fassi Théo - Portfolio" />
+    <Meta name="og:url" content="https://www.fassitheo.com/" />
+    <Meta
+      name="og:image"
+      content="https://www.fassitheo.com/public/images/portfolio.png"
+    />
+
+    <Meta name="twitter:card" content="summary_large_image" />
+    <Meta property="twitter:domain" content="www.fassitheo.com" />
+    <Meta property="twitter:url" content="https://www.fassitheo.com/" />
+    <Meta name="twitter:title" content="Fassi Théo - Portfolio" />
+    <Meta
+      name="twitter:description"
+      content="Portfolio de Théo Fassi, développeur web fullstack autodidacte. 3 ans d'expérience en Javascript et récemment diplomé d'une formation &quot;Développeur Web et Web Mobile (Niveau 5)&quot;."
+    />
+    <Meta
+      name="twitter:image"
+      content="https://www.fassitheo.com/public/images/portfolio.png"
+    />
+
+    <Script
+      src="https://kit.fontawesome.com/6059509ea3.js"
+      crossorigin="anonymous"
+    />
+  </Head>
 
   <Navbar />
   <div
@@ -33,5 +65,4 @@ function updateActive() {
     <Contact />
     <Footer />
   </div>
-  
 </template>
