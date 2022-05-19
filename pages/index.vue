@@ -19,7 +19,7 @@ function updateActive() {
 
 <template>
   <Head>
-    <Title>Fassi Théo - Portfolio</Title>
+    <Title>Portfolio de Théo Fassi - Développeur Fullstack</Title>
     <Meta
       name="description"
       content="Portfolio de Théo Fassi, développeur web fullstack. 3 ans d'expérience en Javascript et récemment diplomé d'une formation &quot;Développeur Web et Web Mobile&quot;."
@@ -27,7 +27,7 @@ function updateActive() {
 
     <Meta name="og:locale" content="fr_FR" />
     <Meta name="og:type" content="website" />
-    <Meta name="og:title" content="Fassi Théo - Portfolio" />
+    <Meta name="og:title" content="Portfolio de Théo Fassi - Développeur Fullstack" />
     <Meta name="og:url" content="https://www.fassitheo.com/" />
     <Meta
       name="og:image"
@@ -37,7 +37,7 @@ function updateActive() {
     <Meta name="twitter:card" content="summary_large_image" />
     <Meta property="twitter:domain" content="www.fassitheo.com" />
     <Meta property="twitter:url" content="https://www.fassitheo.com/" />
-    <Meta name="twitter:title" content="Fassi Théo - Portfolio" />
+    <Meta name="twitter:title" content="Portfolio de Théo Fassi - Développeur Fullstack" />
     <Meta
       name="twitter:description"
       content="Portfolio de Théo Fassi, développeur web fullstack autodidacte. 3 ans d'expérience en Javascript et récemment diplomé d'une formation &quot;Développeur Web et Web Mobile (Niveau 5)&quot;."
