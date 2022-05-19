@@ -31,7 +31,7 @@ function updateActive() {
     <Meta name="og:url" content="https://www.fassitheo.com/" />
     <Meta
       name="og:image"
-      content="https://www.fassitheo.com/public/images/portfolio.png"
+      content="https://www.fassitheo.com/images/portfolio.png"
     />
 
     <Meta name="twitter:card" content="summary_large_image" />
@@ -44,7 +44,7 @@ function updateActive() {
     />
     <Meta
       name="twitter:image"
-      content="https://www.fassitheo.com/public/images/portfolio.png"
+      content="https://www.fassitheo.com/images/portfolio.png"
     />
 
     <Script
