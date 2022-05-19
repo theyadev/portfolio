@@ -10,7 +10,7 @@ type Informations = { [key: string]: Info };
 const informations = ref<Informations>({
   name: {
     value:"Fassi Théo",
-    label:"Nom",
+    label:"Nom/Prénom",
   },
   age: {
     value: "17 ans",
