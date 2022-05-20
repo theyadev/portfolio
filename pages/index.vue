@@ -66,7 +66,7 @@ function updateActive() {
   <Navbar />
   <div
     @scroll="updateActive"
-    class="snap-y snap-mandatory scroll-smooth relative h-screen w-full overflow-y-scroll bg-zinc-900 text-white"
+    class="snap-y scroll-smooth relative h-screen w-full overflow-y-scroll bg-zinc-900 text-white"
   >
     <Landing />
     <About />
