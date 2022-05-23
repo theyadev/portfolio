@@ -1,5 +1,6 @@
 <template>
   <div class="tab" id="contact">
+    <Curve />
     <div class="title mx-auto">Contact</div>
     <h1 class="header">Me Contacter</h1>
     <p class="italic text-center mt-4 mb-2">

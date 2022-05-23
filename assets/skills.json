@@ -56,22 +56,22 @@
     {
         "name": "Wordpress",
         "level": 5,
-        "category": "Autres"
+        "category": "Frameworks"
     },
     {
         "name": "Odoo",
         "level": 5,
-        "category": "Autres"
+        "category": "Frameworks"
     },
     {
         "name": "Photoshop",
         "level": 7,
-        "category": "Autres"
+        "category": "Outils"
     },
     {
         "name": "Adobe XD",
         "level": 5,
-        "category": "Autres"
+        "category": "Outils"
     },
     {
         "name": "CSS",

@@ -9,9 +9,13 @@ const active = useActive();
 function updateActive() {
   const element = document.elementFromPoint(
     window.innerWidth / 2,
-    window.innerHeight / 4
+    window.innerHeight / 2
   );
+
+
   const current_link = links.value.find((link) => element.closest(link.path));
+
+  if (!current_link) return
 
   active.value = current_link.path;
 }
@@ -66,7 +70,8 @@ function updateActive() {
   <Navbar />
   <div
     @scroll="updateActive"
-    class="snap-y scroll-smooth relative h-screen w-full overflow-y-scroll bg-zinc-900 text-white"
+    id="main"
+    class="scroll-smooth relative h-screen w-full overflow-y-scroll bg-zinc-900 text-white"
   >
     <Landing />
     <About />

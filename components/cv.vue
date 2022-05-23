@@ -14,13 +14,34 @@ const categories = ref([
   "Frameworks CSS",
   "Bases de données",
   "Outils",
-  "Autres",
 ]);
 
 const current_category = ref(categories.value[0]);
 const sortedExperiences = experiences.sort(
   (a, b) => getDate(b.from).getTime() - getDate(a.from).getTime()
 );
+
+const experience = (level: number): string => {
+  switch (level) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return "Débutant";
+    case 6:
+      return "Intermediaire";
+    case 7:
+    case 8:
+      return "Avancé";
+    case 9:
+    case 10:
+      return "Expert";
+
+    default:
+      break;
+  }
+};
 </script>
 
 <template>
@@ -81,6 +102,7 @@ const sortedExperiences = experiences.sort(
           <p class="text-lg">
             {{ skill.name }}
           </p>
+          <p class="text-sm italic mb-1">{{ experience(skill.level) }}</p>
           <Progressbar :n="skill.level" />
         </div>
       </div>
@@ -91,5 +113,6 @@ const sortedExperiences = experiences.sort(
       class="button button--green mx-auto mt-10"
       >Téléchager mon CV</a
     >
+    <Curve />
   </div>
 </template>

@@ -8,8 +8,8 @@ const open = ref<boolean>(false)
 <template>
   <ClientOnly>
     <nav
-      class="bg-zinc-900 flex items-center fixed top-0 text-xl font-semibold text-white z-50 transition-all duration-1000 min-h-[4rem] w-full"
-      :class="active === '#home' ? 'bg-opacity-0' : 'bg-opacity-80'"
+      class="bg-zinc-900 flex items-center fixed top-0 text-xl font-semibold text-white z-50 transition-all duration-500 min-h-[4rem] w-full"
+      :class="active === '#home' && open === false ? 'bg-opacity-0' : 'bg-opacity-80'"
     > 
     <div class="absolute top-2 cursor-pointer md:opacity-0" @click="open = !open">
       <i class="fas fa-bars text-5xl px-6" />
