@@ -8,7 +8,6 @@
         <h1 class="text-3xl font-medium uppercase text-white mb-5 text-center">
           Développeur Web Fullstack
         </h1>
-        <!-- <a href="#about" class="button"> En savoir plus </a> -->
         <a href="#about" class="scroll-down">
           <label>Scroll</label>
           <span></span>

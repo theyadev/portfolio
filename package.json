@@ -12,5 +12,9 @@
     "nuxt": "3.0.0-rc.3",
     "postcss": "^8.4.13",
     "tailwindcss": "^3.0.24"
+  },
+  "dependencies": {
+    "@types/nodemailer": "^6.4.4",
+    "nodemailer": "^6.7.5"
   }
 }

@@ -30,9 +30,7 @@ const informations = ref<Informations>({
 </script>
 
 <template>
-  <div id="about" class="tab">
-    <div class="title mx-auto">A Propos</div>
-    <h1 class="header">Me Connaitre ?</h1>
+  <Tab title="A Propos" header="Me Connaitre ?" id="about" :hide-curve="true">
     <div class="mt-8 flex flex-col-reverse md:grid md:grid-cols-6 gap-4">
       <div class="col-span-4">
         <p class="text-xl">Salut ! Moi c'est Théo</p>
@@ -52,5 +50,5 @@ const informations = ref<Informations>({
         <a :href="info.href">{{info.value}}</a>
       </div>
     </div>
-  </div>
+  </Tab>
 </template>

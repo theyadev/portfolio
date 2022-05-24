@@ -14,15 +14,3 @@
     background-size: 200% 200%;
     animation: Gradient 5s ease infinite;
 }
-
-.button {
-    @apply cursor-pointer transition-all duration-200 text-base text-white border-white border px-4 py-1 rounded bg-white bg-opacity-0
-}
-
-
-.button.button--green {
-    @apply border-green-500 text-green-500 bg-green-500 bg-opacity-0
-}
-.button:hover {
-    @apply bg-opacity-100 text-black
-}
