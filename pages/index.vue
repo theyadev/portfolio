@@ -77,7 +77,6 @@ function updateActive() {
     <About />
     <Cv />
     <Projects />
-    <Contact />
     <Footer />
   </div>
 </template>
