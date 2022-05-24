@@ -3,54 +3,6 @@
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
-.tab {
-    @apply snap-start scroll-mt-16 md:scroll-mt-[4.2rem] flex flex-col py-4 md:px-32 px-8 relative
-}
-
-.tab:nth-child(2n) {
-    @apply bg-zinc-800/10
-}
-
-.tab:nth-child(n+3) {
-    @apply pt-8
-}
-
-.header {
-    @apply text-4xl font-semibold mx-auto mt-2 text-center
-}
-
 .sub-header {
     @apply text-3xl font-semibold mt-2
 }
-
-.title {
-    @apply bg-green-500 px-5 py-1 text-black
-}
-
-.custom-shape-divider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-  }
-  
-  .custom-shape-divider svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 50px;
-  }
-  
-  .custom-shape-divider .shape-fill {
-    fill: rgba(39, 39, 42, 0.1);
-    /* fill: white; */
-  }
-  
-  .tab:nth-child(2n) .custom-shape-divider svg {
-    transform: scaleX(-1)
-  }
-  .tab:nth-child(2n) .custom-shape-divider .shape-fill {
-    fill: #18181b;
-  }

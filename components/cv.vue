@@ -42,12 +42,14 @@ const experience = (level: number): string => {
       break;
   }
 };
+
+function openLink(link: string, blank: boolean) {
+  window.open(link, blank ? "_blank" : "")
+}
 </script>
 
 <template>
-  <div id="cv" class="tab">
-    <div class="title mx-auto">Curiculum Vitae</div>
-    <h1 class="header">Résumé de mon CV</h1>
+  <Tab id="cv" title="Curriculum Vitae" header="Résumé de mon CV">
     <div class="grid md:grid-cols-2 gap-y-2">
       <div class="flex flex-col gap-y-4">
         <h3 class="sub-header">Diplomes</h3>
@@ -81,16 +83,13 @@ const experience = (level: number): string => {
       <div
         class="flex justify-center flex-wrap gap-x-8 gap-y-2 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
       >
-        <div
+        <Button
           v-for="category in categories"
-          class="button"
           @click="current_category = category"
-          :class="{
-            'button--green': current_category === category,
-          }"
+          :color="current_category === category ? 'green' : undefined"
         >
           {{ category }}
-        </div>
+        </Button>
       </div>
       <div class="grid md:grid-cols-2 gap-x-10 gap-y-2">
         <div
@@ -103,16 +102,16 @@ const experience = (level: number): string => {
             {{ skill.name }}
           </p>
           <p class="text-sm italic mb-1">{{ experience(skill.level) }}</p>
-          <Progressbar :n="skill.level" />
+          <ProgressBar :n="skill.level" />
         </div>
       </div>
     </div>
-    <a
-      :href="cv_link"
-      target="_blank"
-      class="button button--green mx-auto mt-10"
-      >Téléchager mon CV</a
+    <Button
+      @click="openLink(cv_link, true)"
+      color="green"
+      class="mx-auto mt-10"
+      >Téléchager mon CV</Button
     >
     <Curve />
-  </div>
+  </Tab>
 </template>
