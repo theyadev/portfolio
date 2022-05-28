@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import emailjs from "@emailjs/browser";
 const count = ref<number>(0);
 const name = ref<string>("");
 const email = ref<string>("");
@@ -11,6 +12,8 @@ const isValid = ref(false);
 
 let isErrorTimeout: NodeJS.Timeout;
 const isError = ref(false);
+
+const runtimeConfig = useRuntimeConfig();
 
 async function handleForm() {
   count.value++;
@@ -25,15 +28,21 @@ async function handleForm() {
   try {
     if (count.value > 5) throw new Error("Too many requests");
 
-    await $fetch("/api/email", {
-      method: "post",
-      body: {
-        name: name.value,
-        email: email.value,
-        message: message.value,
-      },
-    });
+    const templateParams = {
+      from_name: name.value,
+      message: message.value,
+      reply_to: email.value,
+    };
 
+    const res = await emailjs.send(
+      runtimeConfig.public.emailjsServiceId,
+      runtimeConfig.public.emailjsTemplateId,
+      templateParams,
+      runtimeConfig.public.emailjsPublicKey
+    );
+
+    if (res.status != 200) throw new Error("Email not send")
+    
     isLoading.value = false;
     isValid.value = true;
 
