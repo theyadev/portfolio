@@ -41,7 +41,7 @@ const informations = ref<Informations>({
         </p>
       </div>
       <div class="mt-2 md:mt-0 col-span-2 justify-center items-center flex ">
-        <img src="~/assets/images/picture.jpg" alt="me" class="w-52 rounded-full aspect-square">
+        <img src="~/assets/images/picture.webp" alt="me" class="w-52 rounded-full aspect-square">
       </div>
     </div>
     <div class="w-full mt-4 grid gap-y-2 md:grid-cols-4">
