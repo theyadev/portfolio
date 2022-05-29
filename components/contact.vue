@@ -85,6 +85,7 @@ async function handleForm() {
       <div class="grid grid-cols-2 gap-x-10">
         <FormInputContainer>
           <FormInput
+            name="name"
             placeholder=""
             type="text"
             :value="name"
@@ -92,10 +93,11 @@ async function handleForm() {
             required
             @update="(value) => (name = value)"
           />
-          <FormLabel :value="name">Nom</FormLabel>
+          <FormLabel for="name" :value="name">Nom</FormLabel>
         </FormInputContainer>
         <FormInputContainer>
           <FormInput
+          name="email"
             placeholder=""
             type="email"
             :value="email"
@@ -103,7 +105,7 @@ async function handleForm() {
             required
             @update="(value) => (email = value)"
           />
-          <FormLabel :value="email">Email</FormLabel>
+          <FormLabel for="email" :value="email">Email</FormLabel>
         </FormInputContainer>
       </div>
       <FormInputContainer>
@@ -117,7 +119,7 @@ async function handleForm() {
           required
           :disabled="isLoading"
         />
-        <FormLabel :value="message">Message</FormLabel>
+        <FormLabel for="content" :value="message">Message</FormLabel>
       </FormInputContainer>
       <Button class="mr-auto" :disabled="isLoading">Envoyer</Button>
       <span
