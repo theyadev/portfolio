@@ -127,6 +127,5 @@ function formatDate(date_string: string) {
     <Button :href="cv_link" :blank="true" color="green" class="mx-auto mt-10"
       >Téléchager mon CV</Button
     >
-    <Curve />
   </Tab>
 </template>
