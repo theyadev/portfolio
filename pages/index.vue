@@ -19,6 +19,12 @@ function updateActive() {
 
   active.value = current_link.path;
 }
+
+useHead({
+   htmlAttrs: {
+    lang: 'fr',
+  }
+})
 </script>
 
 <template>
