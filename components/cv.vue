@@ -1,19 +1,35 @@
 <script setup lang="ts">
+import { createClient } from "@supabase/supabase-js";
+
+const runtimeConfig = useRuntimeConfig();
+
+const supabase = createClient(
+  runtimeConfig.public.supabaseUrl,
+  runtimeConfig.public.supabaseAnonKey
+);
+
 const cv_link = ref<string>(
   "https://www.canva.com/design/DAEhpYP0cbc/5OrlTaLCXiQenASohg_aSg/view?utm_content=DAEhpYP0cbc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
 );
 
-const certifications = await $fetch("/api/certifications")
+const { data: skills } = await supabase.from("skill").select(`
+    name,
+    level,
+    category_id (
+        id,
+        name
+    )
+  `);
 
-const experiences = await $fetch("/api/experiences");
+const { data: certifications } = await supabase.from("certification").select();
+const { data: experiences } = await supabase.from("experience").select();
+const { data: categories } = await supabase
+  .from("skill_category")
+  .select("id, name");
 
-const skills = await $fetch("/api/skills");
+const current_category = ref(categories[0]);
 
-const categories = await $fetch("/api/skills/categories");
-
-const current_category = ref(categories.data[0]);
-
-const sortedExperiences = experiences.data.sort(
+const sortedExperiences = experiences.sort(
   (a, b) => getDate(b.from).getTime() - getDate(a.from).getTime()
 );
 
@@ -50,7 +66,11 @@ function pad(n: number) {
 function formatDate(date_string: string) {
   const date = new Date(date_string);
 
-  return [pad(date.getDate()), pad(date.getMonth() + 1), date.getFullYear()].join("/");
+  return [
+    pad(date.getDate()),
+    pad(date.getMonth() + 1),
+    date.getFullYear(),
+  ].join("/");
 }
 </script>
 
@@ -61,12 +81,14 @@ function formatDate(date_string: string) {
         <p class="sub-header">Diplomes</p>
         <div class="px-2 flex flex-col gap-y-2">
           <Card
-            v-for="certification in certifications.data"
+            v-for="certification in certifications"
             :title="certification.name"
             :subtitle="certification.level"
           >
-            remis par <strong>{{ certification.from }}</strong> <span v-if="certification.date">le
-            <strong>{{ formatDate(certification.date) }}</strong></span>
+            remis par <strong>{{ certification.from }}</strong>
+            <span v-if="certification.date"
+              >le <strong>{{ formatDate(certification.date) }}</strong></span
+            >
           </Card>
         </div>
       </div>
@@ -90,7 +112,7 @@ function formatDate(date_string: string) {
         class="flex justify-center flex-wrap gap-x-8 gap-y-2 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
       >
         <Button
-          v-for="category in categories.data"
+          v-for="category in categories"
           @click="current_category = category"
           :color="current_category.id === category.id ? 'green' : undefined"
         >
@@ -99,7 +121,7 @@ function formatDate(date_string: string) {
       </div>
       <div class="grid md:grid-cols-2 gap-x-10 gap-y-2">
         <div
-          v-for="skill in skills.data
+          v-for="skill in skills
             .filter((skill) => skill.category_id.id === current_category.id)
             .sort((a, b) => b.level - a.level)"
           class="gap-y-1 flex flex-col"
