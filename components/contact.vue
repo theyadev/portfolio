@@ -68,15 +68,15 @@ async function handleForm() {
   <Tab id="contact" title="Contact" header="Me Contacter">
     <div class="flex mt-10">
       <div class="mx-auto flex gap-x-4">
-        <a href="https://github.com/theyadev" target="_blank"
+        <a href="https://github.com/theyadev" target="_blank" aria-label="Github">
           ><SvgGithubIcon class="h-12 w-12"
         /></a>
-        <a href="mailto:fassitheo@protonmail.com" target="_blank"
+        <a href="mailto:fassitheo@protonmail.com" target="_blank" aria-label="Email">
           ><SvgEnvelope class="h-12 w-12"
         /></a>
         <a
           href="https://www.linkedin.com/in/th%C3%A9o-fassi-787853223/"
-          target="_blank"
+          target="_blank" aria-label="Linkedin"
           ><SvgLinkedin class="h-12 w-12 rounded"
         /></a>
       </div>
