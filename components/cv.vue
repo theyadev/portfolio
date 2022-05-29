@@ -1,23 +1,19 @@
 <script setup lang="ts">
-import skills_json from "~/assets/skills.json";
-import certifications from "~/assets/certifications.json";
-import experiences from "~/assets/experiences.json";
 const cv_link = ref<string>(
   "https://www.canva.com/design/DAEhpYP0cbc/5OrlTaLCXiQenASohg_aSg/view?utm_content=DAEhpYP0cbc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
 );
 
-const skills = ref(skills_json);
+const certifications = await $fetch("/api/certifications")
 
-const categories = ref([
-  "Langages",
-  "Frameworks",
-  "Frameworks CSS",
-  "Bases de données",
-  "Outils",
-]);
+const experiences = await $fetch("/api/experiences");
 
-const current_category = ref(categories.value[0]);
-const sortedExperiences = experiences.sort(
+const skills = await $fetch("/api/skills");
+
+const categories = await $fetch("/api/skills/categories");
+
+const current_category = ref(categories.data[0]);
+
+const sortedExperiences = experiences.data.sort(
   (a, b) => getDate(b.from).getTime() - getDate(a.from).getTime()
 );
 
@@ -44,7 +40,17 @@ const experience = (level: number): string => {
 };
 
 function openLink(link: string, blank: boolean) {
-  window.open(link, blank ? "_blank" : "")
+  window.open(link, blank ? "_blank" : "");
+}
+
+function pad(n: number) {
+  return n < 10 ? "0" + n : n;
+}
+
+function formatDate(date_string: string) {
+  const date = new Date(date_string);
+
+  return [pad(date.getDate()), pad(date.getMonth() + 1), date.getFullYear()].join("/");
 }
 </script>
 
@@ -55,12 +61,12 @@ function openLink(link: string, blank: boolean) {
         <p class="sub-header">Diplomes</p>
         <div class="px-2 flex flex-col gap-y-2">
           <Card
-            v-for="certification in certifications"
+            v-for="certification in certifications.data"
             :title="certification.name"
             :subtitle="certification.level"
           >
-            remis par <strong>{{ certification.from }}</strong> le
-            <strong>{{ certification.date }}</strong>
+            remis par <strong>{{ certification.from }}</strong> <span v-if="certification.date">le
+            <strong>{{ formatDate(certification.date) }}</strong></span>
           </Card>
         </div>
       </div>
@@ -72,8 +78,8 @@ function openLink(link: string, blank: boolean) {
             :title="experience.name"
             :subtitle="experience.activity"
           >
-            du <strong>{{ experience.from }}</strong> au
-            <strong>{{ experience.to }}</strong>
+            du <strong>{{ formatDate(experience.from) }}</strong> au
+            <strong>{{ formatDate(experience.to) }}</strong>
           </Card>
         </div>
       </div>
@@ -84,17 +90,17 @@ function openLink(link: string, blank: boolean) {
         class="flex justify-center flex-wrap gap-x-8 gap-y-2 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
       >
         <Button
-          v-for="category in categories"
+          v-for="category in categories.data"
           @click="current_category = category"
-          :color="current_category === category ? 'green' : undefined"
+          :color="current_category.id === category.id ? 'green' : undefined"
         >
-          {{ category }}
+          {{ category.name }}
         </Button>
       </div>
       <div class="grid md:grid-cols-2 gap-x-10 gap-y-2">
         <div
-          v-for="skill in skills
-            .filter((skill) => skill.category === current_category)
+          v-for="skill in skills.data
+            .filter((skill) => skill.category_id.id === current_category.id)
             .sort((a, b) => b.level - a.level)"
           class="gap-y-1 flex flex-col"
         >
@@ -106,10 +112,7 @@ function openLink(link: string, blank: boolean) {
         </div>
       </div>
     </div>
-    <Button
-      @click="openLink(cv_link, true)"
-      color="green"
-      class="mx-auto mt-10"
+    <Button @click="openLink(cv_link, true)" color="green" class="mx-auto mt-10"
       >Téléchager mon CV</Button
     >
     <Curve />

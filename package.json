@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
+    "@supabase/supabase-js": "^1.35.3",
     "@types/nodemailer": "^6.4.4"
   }
 }
