@@ -2,12 +2,16 @@
 interface Props {
   color?: string;
   disabled?: boolean;
+  href?: string;
+  blank?: boolean;
 }
 const { color, disabled } = defineProps<Props>();
 </script>
 
 <template>
-  <button
+  <a
+  :href="href ? href : '#'"
+  :target="blank ? '_blank' : ''"
     :class="
       color === 'green'
         ? `border-green-500 text-green-500 bg-green-500`
@@ -17,5 +21,5 @@ const { color, disabled } = defineProps<Props>();
     :disabled="disabled"
   >
     <slot />
-  </button>
+  </a>
 </template>

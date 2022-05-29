@@ -12,7 +12,7 @@ function getColor(number: number) {
     case 4:
     case 5:
     case 6:
-      return "bg-yellow-500";
+      return "bg-purple-500";
     case 7:
     case 8:
       return "bg-blue-500";
