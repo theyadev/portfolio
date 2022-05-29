@@ -52,7 +52,7 @@ function openLink(link: string, blank: boolean) {
   <Tab id="cv" title="Curriculum Vitae" header="Résumé de mon CV">
     <div class="grid md:grid-cols-2 gap-y-2">
       <div class="flex flex-col gap-y-4">
-        <h3 class="sub-header">Diplomes</h3>
+        <p class="sub-header">Diplomes</p>
         <div class="px-2 flex flex-col gap-y-2">
           <Card
             v-for="certification in certifications"
@@ -65,7 +65,7 @@ function openLink(link: string, blank: boolean) {
         </div>
       </div>
       <div class="flex flex-col gap-y-4">
-        <h3 class="sub-header">Expériences</h3>
+        <p class="sub-header">Expériences</p>
         <div class="px-2 flex flex-col gap-y-2">
           <Card
             v-for="experience in sortedExperiences"
@@ -79,7 +79,7 @@ function openLink(link: string, blank: boolean) {
       </div>
     </div>
     <div class="gap-y-4 flex flex-col">
-      <h3 class="sub-header pt-8 md:pt-0">Mes Compétences</h3>
+      <p class="sub-header pt-8 md:pt-0">Mes Compétences</p>
       <div
         class="flex justify-center flex-wrap gap-x-8 gap-y-2 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
       >
