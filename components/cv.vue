@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import { createClient } from "@supabase/supabase-js";
-
-const runtimeConfig = useRuntimeConfig();
-
-const supabase = createClient(
-  runtimeConfig.public.supabaseUrl,
-  runtimeConfig.public.supabaseAnonKey
-);
+const supabase = useSupabaseClient()
 
 const cv_link = ref<string>(
   "https://www.canva.com/design/DAEhpYP0cbc/5OrlTaLCXiQenASohg_aSg/view?utm_content=DAEhpYP0cbc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
