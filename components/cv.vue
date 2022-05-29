@@ -1,30 +1,27 @@
 <script setup lang="ts">
-const supabase = useSupabaseClient()
+const supabase = useSupabaseClient();
 
-const cv_link = ref<string>(
-  "https://www.canva.com/design/DAEhpYP0cbc/5OrlTaLCXiQenASohg_aSg/view?utm_content=DAEhpYP0cbc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-);
+const cv_link =
+  "https://www.canva.com/design/DAEhpYP0cbc/5OrlTaLCXiQenASohg_aSg/view?utm_content=DAEhpYP0cbc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton";
 
-const { data: skills } = await supabase.from("skill").select(`
+const skills_query = `
     name,
     level,
     category_id (
         id,
         name
     )
-  `);
+  `;
 
+const { data: skills } = await supabase.from("skill").select(skills_query);
 const { data: certifications } = await supabase.from("certification").select();
-const { data: experiences } = await supabase.from("experience").select();
-const { data: categories } = await supabase
-  .from("skill_category")
-  .select("id, name");
+const { data: experiences } = await supabase
+  .from("experience")
+  .select()
+  .order("from");
+const { data: categories } = await supabase.from("skill_category").select();
 
 const current_category = ref(categories[0]);
-
-const sortedExperiences = experiences.sort(
-  (a, b) => getDate(b.from).getTime() - getDate(a.from).getTime()
-);
 
 const experience = (level: number): string => {
   switch (level) {
@@ -89,7 +86,7 @@ function formatDate(date_string: string) {
         <p class="sub-header">Expériences</p>
         <div class="px-2 flex flex-col gap-y-2">
           <Card
-            v-for="experience in sortedExperiences"
+            v-for="experience in experiences"
             :title="experience.name"
             :subtitle="experience.activity"
           >
@@ -127,7 +124,7 @@ function formatDate(date_string: string) {
         </div>
       </div>
     </div>
-    <Button @click="openLink(cv_link, true)" color="green" class="mx-auto mt-10"
+    <Button :href="cv_link" :blank="true" color="green" class="mx-auto mt-10"
       >Téléchager mon CV</Button
     >
     <Curve />
