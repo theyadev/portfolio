@@ -69,7 +69,8 @@ const informations = ref<Informations>({
     <div class="w-full mt-4 grid gap-y-2 md:grid-cols-4">
       <div v-for="info of informations">
         <p class="font-bold">{{ info.label }} :</p>
-        <a :href="info.href">{{ info.value }}</a>
+        <a v-if="info.href" :href="info.href">{{ info.value }}</a>
+        <span v-else>{{info.value}}</span>
       </div>
     </div>
   </Tab>
