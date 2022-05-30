@@ -18,8 +18,9 @@ function updateValue(e) {
 
 
 <template>
-  <input
-    class="focus-visible:outline-none bg-white px-4 py-2 text-black rounded disabled:cursor-default disabled:pointer-events-none disabled:text-gray-500 peer"
+  <component :is="type === 'textarea' ? 'textarea' : 'input'"
+    class="focus-visible:outline-none bg-white px-4 py-2 text-black rounded disabled:cursor-default disabled:pointer-events-none disabled:text-gray-500 transition-all duration-500 peer"
+    :class="type === 'textarea' && value?.length > 0 ? 'h-20' : 'h-10'"
     :placeholder="placeholder"
     :type="type"
     :id="name"
