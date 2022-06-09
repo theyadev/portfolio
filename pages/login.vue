@@ -12,7 +12,7 @@ async function loginWithGithub() {
       provider: "github",
     },
     {
-      redirectTo: "http://localhost:3000/dashboard",
+      redirectTo: window.location.hostname + "/dashboard",
       scopes: "repo",
     }
   );
