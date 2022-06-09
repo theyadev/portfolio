@@ -12,7 +12,7 @@ async function loginWithGithub() {
       provider: "github",
     },
     {
-      redirectTo: window.location.protocol + "://" + window.location.hostname + "/dashboard",
+      redirectTo: "https://preview.fassitheo.com/dashboard",
       scopes: "repo",
     }
   );
