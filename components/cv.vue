@@ -69,7 +69,7 @@ function formatDate(date_string: string) {
     <div class="grid md:grid-cols-2 gap-y-2">
       <div class="flex flex-col gap-y-4">
         <p class="sub-header">Diplomes</p>
-        <div class="px-2 flex flex-col gap-y-2">
+        <div class="flex flex-col px-2 gap-y-2">
           <Card
             v-for="certification in certifications"
             :title="certification.name"
@@ -84,7 +84,7 @@ function formatDate(date_string: string) {
       </div>
       <div class="flex flex-col gap-y-4">
         <p class="sub-header">Expériences</p>
-        <div class="px-2 flex flex-col gap-y-2">
+        <div class="flex flex-col px-2 gap-y-2">
           <Card
             v-for="experience in experiences"
             :title="experience.name"
@@ -96,10 +96,10 @@ function formatDate(date_string: string) {
         </div>
       </div>
     </div>
-    <div class="gap-y-4 flex flex-col">
-      <p class="sub-header pt-8 md:pt-0">Mes Compétences</p>
+    <div class="flex flex-col gap-y-4">
+      <p class="pt-8 sub-header md:pt-0">Mes Compétences</p>
       <div
-        class="flex justify-center flex-wrap gap-x-8 gap-y-2 bg-zinc-900 py-2 uppercase font-semibold rounded-lg"
+        class="flex flex-wrap justify-center py-2 font-semibold uppercase rounded-lg gap-x-8 gap-y-2 bg-zinc-900"
       >
         <Button
           v-for="category in categories"
@@ -114,18 +114,18 @@ function formatDate(date_string: string) {
           v-for="skill in skills
             .filter((skill) => skill.category_id.id === current_category.id)
             .sort((a, b) => b.level - a.level)"
-          class="gap-y-1 flex flex-col"
+          class="flex flex-col gap-y-1"
         >
           <p class="text-lg">
             {{ skill.name }}
           </p>
-          <p class="text-sm italic mb-1">{{ experience(skill.level) }}</p>
+          <p class="mb-1 text-sm italic">{{ experience(skill.level) }}</p>
           <ProgressBar :n="skill.level" />
         </div>
       </div>
     </div>
     <Button :href="cv_link" :blank="true" color="green" class="mx-auto mt-10"
-      >Téléchager mon CV</Button
+      >Télécharger mon CV</Button
     >
   </Tab>
 </template>
