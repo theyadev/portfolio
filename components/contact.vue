@@ -67,17 +67,17 @@ async function handleForm() {
 <template>
   <Tab id="contact" title="Contact" header="Me Contacter">
     <div class="flex mt-10">
-      <div class="mx-auto flex gap-x-4">
+      <div class="flex mx-auto gap-x-4">
         <a href="https://github.com/theyadev" target="_blank" aria-label="Github">
-          <SvgGithubIcon class="h-12 w-12"
+          <SvgGithubIcon class="w-12 h-12"
         /></a>
         <a href="mailto:fassitheo@protonmail.com" target="_blank" aria-label="Email">
-          <SvgEnvelope class="h-12 w-12"
+          <SvgEnvelope class="w-12 h-12"
         /></a>
         <a
           href="https://www.linkedin.com/in/th%C3%A9o-fassi-787853223/"
           target="_blank" aria-label="Linkedin"
-          ><SvgLinkedin class="h-12 w-12 rounded"
+          ><SvgLinkedin class="w-12 h-12 rounded"
         /></a>
       </div>
     </div>
@@ -110,7 +110,7 @@ async function handleForm() {
       </div>
       <FormInputContainer>
         <textarea
-          class="resize-none w-full focus-visible:outline-none bg-white px-4 py-2 text-black rounded disabled:cursor-default disabled:pointer-events-none disabled:text-gray-500 peer focus:h-20 transition-all duration-500 peer"
+          class="w-full px-4 py-2 text-black transition-all duration-500 bg-white rounded resize-none focus-visible:outline-none disabled:cursor-default disabled:pointer-events-none disabled:text-gray-500 peer focus:h-20"
           :class="message.length > 0 ? 'h-20' : 'h-10'"
           name="content"
           id="content"
@@ -121,9 +121,9 @@ async function handleForm() {
         />
         <FormLabel for="content" :value="message">Message</FormLabel>
       </FormInputContainer>
-      <Button class="mr-auto" :disabled="isLoading">Envoyer</Button>
+      <Button @click="handleForm" class="mr-auto" :disabled="isLoading">Envoyer</Button>
       <span
-        class="transition-all duration-200 absolute -bottom-4"
+        class="absolute transition-all duration-200 -bottom-4"
         :class="
           !isLoading
             ? 'opacity-0 pointer-events-none'
@@ -132,7 +132,7 @@ async function handleForm() {
         >Envoie en cours...</span
       >
       <span
-        class="transition-all duration-200 absolute -bottom-4 text-green-500"
+        class="absolute text-green-500 transition-all duration-200 -bottom-4"
         :class="
           !isValid
             ? 'opacity-0 pointer-events-none'
@@ -141,7 +141,7 @@ async function handleForm() {
         >Message envoyé !</span
       >
       <span
-        class="transition-all duration-200 absolute -bottom-4 text-red-500"
+        class="absolute text-red-500 transition-all duration-200 -bottom-4"
         :class="
           !isError
             ? 'opacity-0 pointer-events-none'
